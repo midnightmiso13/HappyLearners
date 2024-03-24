@@ -8,4 +8,4 @@ const ToasterProvider = () => {
     );
 }
 
-expert default ToasterProvider;
+export default ToasterProvider;

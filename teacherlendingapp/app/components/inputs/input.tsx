@@ -10,6 +10,7 @@ import { BiDollar } from 'react-icons/bi';
 interface InputProps {
     id: string;
     label: string;
+    type?: string;
     disabled?: boolean;
     formatPrice?: boolean;
     required?: boolean;
@@ -20,7 +21,7 @@ interface InputProps {
 const Input: React.FC<InputProps> = ({
     id,
     label,
-    tyoe = "text",
+    type = "text",
     disabled,
     formatPrice,
     register,
@@ -34,8 +35,8 @@ const Input: React.FC<InputProps> = ({
                     size={24}
                     className="
                     text-neutral-700
-                    abosolute
-                    top=5
+                    absolute
+                    top-5
                     left-2
                     "
                 />
@@ -43,15 +44,16 @@ const Input: React.FC<InputProps> = ({
             <Input
             id={id}
             disabled={disabled}
-            {... register(id, {required})}
+            {... register(id, { required })}
             placeholder=" "
             type={type}
-            className={
+            className={'
                 peer
                 w-full
                 p-4
                 pt-6
                 font-light
+                bg-white
                 border-2
                 rounded-md
                 outline-none
@@ -59,14 +61,15 @@ const Input: React.FC<InputProps> = ({
                 disabled:opacity-70
                 disabled:cursor-not-allowed
                 ${formatPrice ? 'pl-9' : 'pl-4'}
-                ${errors[id] ? 'border-green-500' : 'border-neutral-300"}
-                ${errors[id] ? 'focus:border-green-500' : 'focus:border-black"}
-                }
-            />
+                ${errors[id] ? 'border-green-500' : 'border-neutral-300'}
+                ${errors[id] ? 'focus:border-green-500' : 'focus:border-black'}
+                '}
+                />
             <label
                 className={'
                 absolute
-                text-mdduration-150
+                text-md
+                duration-150
                 transform
                 -translate-y-3
                 top-5
@@ -76,9 +79,9 @@ const Input: React.FC<InputProps> = ({
                 peer-placeholder-shown:scale-100
                 peer-placeholder-shown:translate-y-0
                 peer-focus:scale-75
-                peer-focus:-transalte-y-4
+                peer-focus:-translate-y-4
                 ${errors[id] ? 'text-green-500' : 'text-zinc-400'}
-                }
+                '}
             >
                 {label}
             </label>

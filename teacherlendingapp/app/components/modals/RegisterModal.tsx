@@ -13,11 +13,11 @@ import {
 import useRegisterModal from '@/app/hooks/useRegisterModal';
 import Modal from './Modal';
 import Heading from '../Heading';
-import Input from '../inputs/input';
+import Input from '../inputs/Input';
 import { toast } from 'react-hot-toast';
 import Button from '../Button';
 
-const LoginModal = () => {
+const RegisterModal = () => {
     const registerModal = useRegisterModal();
     const [isLoading, setIsLoading] = useState(false);
 
@@ -40,9 +40,9 @@ const LoginModal = () => {
 
         axios.post('/api/register', data)
             .then(() => {
-            registerModal.onClose();
+                registerModal.onClose();
             })
-            .catch((error) => {
+                .catch((error) => {
                 toast.error('Something went Wrong.');
             })
             .finally(() => {
@@ -91,14 +91,14 @@ const LoginModal = () => {
             outline
             label="Continue with Google
             icon=(FcGoogle)"
-            oneClick-{() => {}}
+            onClick={() => {}}
             />
             <hr />
             <Button
             outline
             label="Continue with Github"
             icon={AiFillGithub}
-            onCLick={() => {}}
+            onClick={() => {}}
         />
         <div 
         className="
@@ -142,4 +142,4 @@ const LoginModal = () => {
     );
 }
 
-export default LoginModal;
+export default RegisterModal;
