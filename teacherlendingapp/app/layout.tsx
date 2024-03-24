@@ -3,6 +3,7 @@ import { Rubik } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar/navbar"
 import ClientOnly from "./components/ClientOnly";
+import Modal from "./components/modals/Modal";
 
 export const metadata: Metadata = {
   title: "Happy Learner",
@@ -22,6 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={font.className}>
         <ClientOnly>
+          <Modal title="Hello World" isOpen/>
         <Navbar />
         </ClientOnly>
         {children}
