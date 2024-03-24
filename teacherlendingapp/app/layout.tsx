@@ -23,7 +23,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={font.className}>
         <ClientOnly>
-        <Navbar />
+          <ToasterProvider />
+          <RegisterModal/>
+          <Navbar />
         </ClientOnly>
         {children}
         </body>

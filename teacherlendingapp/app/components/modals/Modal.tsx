@@ -182,7 +182,8 @@ const Modal: React.FC<ModalProps> = (
                                     label={actionLabel}
                                     onClick={handleSecondaryAction} 
                                 />
-                            </div>                        
+                            </div>
+                            {footer}                      
                         </div>
                     </div>
                 </div>

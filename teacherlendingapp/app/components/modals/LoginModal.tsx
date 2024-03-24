@@ -13,7 +13,7 @@ import {
 import useRegisterModal from '@/app/hooks/useRegisterModal';
 import Modal from './Modal';
 import Heading from '../Heading';
-import Input from '../inputs/Input';
+import Input from '../inputs/input';
 import { toast } from 'react-hot-toast';
 import Button from '../Button';
 
@@ -41,16 +41,16 @@ const LoginModal = () => {
         axios.post('/api/register', data)
             .then(() => {
             registerModal.onClose();
-        })
-        .catch((error) => {
-            console.log(error);
-        })
-        .finally(() => {
-            setIsLoading(false);
-        })
+            })
+            .catch((error) => {
+                toast.error('Something went Wrong.');
+            })
+            .finally(() => {
+                setIsLoading(false);
+            })
     }
 
-    const bodyCntent = (
+    const bodyContent = (
         <div className="flex flex-col gap-4">
             <Heading
                 title="Welcome to Happy Learners"
@@ -59,6 +59,14 @@ const LoginModal = () => {
             <Input
                 id="email"
                 label="Email"
+                disabled={isLoading}
+                register={register}
+                errors={errors}
+                required
+            />
+            <Input
+                id="name"
+                label="Name"
                 disabled={isLoading}
                 register={register}
                 errors={errors}
@@ -81,6 +89,13 @@ const LoginModal = () => {
             <hr />
             <Button
             outline
+            label="Continue with Google
+            icon=(FcGoogle)"
+            oneClick-{() => {}}
+            />
+            <hr />
+            <Button
+            outline
             label="Continue with Github"
             icon={AiFillGithub}
             onCLick={() => {}}
@@ -94,7 +109,7 @@ const LoginModal = () => {
             "
         > 
             <div className="
-            justify-center flex flex-row items-center gap-2">
+                justify-center flex flex-row items-center gap-2">
             <div>
                 Already have an account?
             </div>
