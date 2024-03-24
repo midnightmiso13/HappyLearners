@@ -17,4 +17,4 @@ const Logo = () => {
     )
 }
 
-export default Navbar;
+export default Logo;
