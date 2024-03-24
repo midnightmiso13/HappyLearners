@@ -6,7 +6,7 @@ import { FcGoogle } from "react-icons/fc";
 import { useCallback, useState } from 'react';
 import {
     FieldValues,
-    SubmitHanler,
+    SubmitHandler,
     useForm
 } from 'react-hook-form';
 
@@ -21,13 +21,13 @@ const LoginModal = () => {
     const registerModal = useRegisterModal();
     const [isLoading, setIsLoading] = useState(false);
 
-    cosnt {
-        registerModal,
+    const {
+        register,
         handleSubmit,
         formState: {
             errors,
         }
-    } = useForm,FieldValues>({
+    } = useForm,<FieldValues>({
         defaultValues: {
             name: '',
             email: '',
@@ -39,11 +39,11 @@ const LoginModal = () => {
         setIsLoading(true);
 
         axios.post('/api/register', data)
-        .then(() => {
+            .then(() => {
             registerModal.onClose();
         })
         .catch((error) => {
-            toast.error('Something went wrong.');
+            console.log(error);
         })
         .finally(() => {
             setIsLoading(false);
